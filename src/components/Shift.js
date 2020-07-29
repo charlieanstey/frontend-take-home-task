@@ -36,7 +36,6 @@ const Shift = ({
 );
 
 Shift.propTypes = {
-  id: PropTypes.string.isRequired,
   practiceName: PropTypes.string.isRequired,
   date: PropTypes.instanceOf(Date).isRequired,
   startTime: PropTypes.string.isRequired,

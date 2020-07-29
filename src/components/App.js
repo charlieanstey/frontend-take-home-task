@@ -1,16 +1,29 @@
-import React from "react";
-import { useStoreState } from "easy-peasy";
+import React, { useEffect } from "react";
+import { useStoreActions, useStoreState } from "easy-peasy";
 
 import Shift from "./Shift";
 import "./App.css";
 
 const App = () => {
-  const shifts = useStoreState((state) => state.sessions.availableShifts);
-  console.log(shifts);
+  const fetchSessions = useStoreActions(
+    (actions) => actions.sessions.fetchSessions
+  );
+
+  useEffect(() => {
+    fetchSessions();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const availableShifts = useStoreState(
+    (state) => state.sessions.availableShifts
+  );
+
+  console.log(availableShifts);
 
   return (
     <div className="App">
-      <Shift {...shifts[0]} />
+      {availableShifts.map(({ id, ...rest }) => (
+        <Shift key={id} {...rest} />
+      ))}
     </div>
   );
 };
