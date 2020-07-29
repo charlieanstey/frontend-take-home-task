@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useStoreActions, useStoreState } from "easy-peasy";
 
 import Shift from "./Shift";
-import "./App.css";
 
 const App = () => {
   const fetchSessions = useStoreActions(
@@ -18,7 +17,7 @@ const App = () => {
   );
 
   return (
-    <div className="App">
+    <div className="App container mx-auto pt-8">
       {availableShifts.map(({ id, ...rest }) => (
         <Shift key={id} {...rest} />
       ))}

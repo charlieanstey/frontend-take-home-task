@@ -5,7 +5,6 @@ import ReactDOM from "react-dom";
 import { StoreProvider } from "easy-peasy";
 
 import store from "./store";
-import "./index.css";
 import App from "./components/App";
 import * as serviceWorker from "./serviceWorker";
 

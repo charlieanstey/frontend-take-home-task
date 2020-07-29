@@ -10,7 +10,7 @@ const Shift = ({
   applicationsCount,
 }) => (
   <>
-    <ul>
+    <ul className="border border-dark-12 rounded mb-8 p-4 text-dark">
       <li>
         <strong>Practice name: </strong>
         {practiceName}
