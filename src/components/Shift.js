@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Moment from "react-moment";
 
 const Shift = ({
   practiceName,
-  date,
-  startTime,
-  endTime,
+  startDatetime,
+  endDatetime,
   hourlyRate,
   applicationsCount,
 }) => (
@@ -17,11 +17,13 @@ const Shift = ({
       </li>
       <li>
         <strong>Date: </strong>
-        {}
+        <Moment date={startDatetime} format="DD/MM/YYYY"></Moment>
       </li>
       <li>
         <strong>Start/End times: </strong>
-        {}
+        <Moment date={startDatetime} format="HH:mm" />
+        {" to "}
+        <Moment date={endDatetime} format="HH:mm" />
       </li>
       <li>
         <strong>Hourly rate of shift: </strong>
@@ -37,9 +39,8 @@ const Shift = ({
 
 Shift.propTypes = {
   practiceName: PropTypes.string.isRequired,
-  date: PropTypes.instanceOf(Date).isRequired,
-  startTime: PropTypes.string.isRequired,
-  endTime: PropTypes.string.isRequired,
+  startDatetime: PropTypes.string.isRequired,
+  endDatetime: PropTypes.string.isRequired,
   hourlyRate: PropTypes.number.isRequired,
   applicationsCount: PropTypes.number.isRequired,
 };

@@ -1,4 +1,5 @@
 import { action, computed, thunk } from "easy-peasy";
+import moment from "moment";
 
 import sessionsService from "../../services/sessions.service";
 
@@ -21,11 +22,14 @@ const sessionsModel = {
           (s) =>
             s.status === "POSTED" &&
             s.locum === null &&
-            s.staffType === userStaffType
+            s.staffType === userStaffType &&
+            moment(s.startDatetime).diff(Date.now(), "days") > 0
         )
-        .map(({ id, hourlyRate, ...rest }) => ({
+        .map(({ id, hourlyRate, startDatetime, endDatetime, ...rest }) => ({
           id,
           practiceName: rest.practice.name,
+          startDatetime,
+          endDatetime,
           hourlyRate,
           applicationsCount: rest.applicationIds.length,
         }))
