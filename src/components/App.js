@@ -17,8 +17,6 @@ const App = () => {
     (state) => state.sessions.availableShifts
   );
 
-  console.log(availableShifts);
-
   return (
     <div className="App">
       {availableShifts.map(({ id, ...rest }) => (
