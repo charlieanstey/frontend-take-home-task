@@ -2,15 +2,17 @@ import "react-app-polyfill/ie11";
 import "react-app-polyfill/stable";
 import React from "react";
 import ReactDOM from "react-dom";
+import { StoreProvider } from "easy-peasy";
 
+import store from "./store";
 import "./index.css";
-import App from "./App";
+import App from "./components/App";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StoreProvider store={store}>
     <App />
-  </React.StrictMode>,
+  </StoreProvider>,
   document.getElementById("root")
 );
 

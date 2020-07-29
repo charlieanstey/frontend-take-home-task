@@ -1,9 +1,9 @@
 import userModel from "./user.model";
-import shiftsModel from "./shifts.model";
+import sessionsModel from "./sessions.model";
 
 const storeModel = {
   user: userModel,
-  shifts: shiftsModel,
+  sessions: sessionsModel,
 };
 
 export default storeModel;
